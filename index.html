@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zahra Mithaiwala — Digital Marketing & Operations Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0f0e0b;
+    --cream: #f9f6f0;
+    --warm: #e8e0d0;
+    --gold: #b8964a;
+    --gold-light: #d4b06a;
+    --muted: #7a7165;
+    --accent: #2c2318;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 4rem; background: rgba(249,246,240,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(–warm); }
+.nav-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 1.15rem; font-weight: 600; letter-spacing: 0.06em; color: var(–ink); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(–muted); text-decoration: none; transition: color 0.25s; }
+.nav-links a:hover { color: var(–gold); }
+
+#hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 8rem 4rem 4rem; gap: 4rem; position: relative; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(184,150,74,0.07) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 10% 80%, rgba(184,150,74,0.04) 0%, transparent 60%); }
+.hero-text { position: relative; z-index: 1; }
+.hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(–gold); font-weight: 500; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+.hero-eyebrow::before { content: ‘’; display: block; width: 2rem; height: 1px; background: var(–gold); }
+h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 1.75rem; }
+h1 em { font-style: italic; color: var(–gold); }
+.hero-intro { font-size: 1.05rem; color: #3a3530; line-height: 1.8; max-width: 52ch; margin-bottom: 2.5rem; font-weight: 300; }
+.hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; background: var(–ink); color: var(–cream); padding: 0.85rem 2rem; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: background 0.25s, gap 0.25s; }
+.hero-cta:hover { background: var(–gold); gap: 1.25rem; }
+.hero-stats { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(–warm); border: 1.5px solid var(–warm); }
+.stat-card { background: var(–cream); padding: 2.25rem 2rem; transition: background 0.25s; }
+.stat-card:hover { background: #f2ede4; }
+.stat-number { font-family: ‘Cormorant Garamond’, serif; font-size: 2.8rem; font-weight: 300; color: var(–gold); line-height: 1; margin-bottom: 0.4rem; }
+.stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(–muted); font-weight: 500; }
+
+section { padding: 6rem 4rem; }
+.section-label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(–gold); font-weight: 500; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+.section-label::before { content: ‘’; display: block; width: 1.5rem; height: 1px; background: var(–gold); }
+h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.2; margin-bottom: 3.5rem; }
+h2 em { font-style: italic; color: var(–gold); }
+
+/* BIO */
+#bio { background: var(–accent); color: var(–cream); }
+#bio .section-label { color: var(–gold-light); }
+#bio .section-label::before { background: var(–gold-light); }
+#bio h2 { color: var(–cream); }
+#bio h2 em { color: var(–gold-light); }
+.bio-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5rem; align-items: start; }
+.bio-text p { font-weight: 300; font-size: 1.05rem; line-height: 1.9; opacity: 0.9; margin-bottom: 1.25rem; }
+.bio-credentials { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 0.5rem; }
+.credential { border-left: 1px solid var(–gold); padding-left: 1.25rem; }
+.credential-title { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.15rem; }
+.credential-sub { font-size: 0.78rem; opacity: 0.6; }
+
+/* CASE STUDIES */
+#cases { background: var(–cream); }
+.cases-grid { display: flex; flex-direction: column; gap: 2.5rem; }
+.case-card { display: grid; grid-template-columns: 0.25fr 1fr 1fr 1fr; gap: 0; border: 1.5px solid var(–warm); transition: border-color 0.25s; overflow: hidden; }
+.case-card:hover { border-color: var(–gold); }
+.case-index { background: var(–ink); color: var(–cream); display: flex; align-items: flex-start; justify-content: center; padding: 2.25rem 1rem; font-family: ‘Cormorant Garamond’, serif; font-size: 2.5rem; font-weight: 300; opacity: 0.6; }
+.case-block { padding: 2.25rem 2rem; border-left: 1.5px solid var(–warm); }
+.case-block-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–gold); font-weight: 500; margin-bottom: 0.85rem; }
+.case-block h3 { font-family: ‘Cormorant Garamond’, serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 0.75rem; line-height: 1.4; }
+.case-block p { font-size: 0.88rem; color: #4a4540; line-height: 1.75; font-weight: 300; }
+.case-result { background: #f2ede4; }
+.case-result .case-block-label { color: var(–ink); }
+.case-result p { font-weight: 400; color: var(–ink); }
+
+/* HOW I WORK */
+#how { background: #f4efe6; }
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.how-card { background: var(–cream); padding: 2.5rem 2rem; border-bottom: 3px solid transparent; transition: border-color 0.3s, transform 0.3s; }
+.how-card:hover { border-color: var(–gold); transform: translateY(-4px); }
+.how-icon { font-family: ‘Cormorant Garamond’, serif; font-size: 2.5rem; font-weight: 300; color: var(–gold); margin-bottom: 1.25rem; display: block; }
+.how-card h3 { font-family: ‘Cormorant Garamond’, serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 0.75rem; }
+.how-card p { font-size: 0.88rem; color: #5a5550; line-height: 1.8; font-weight: 300; }
+
+/* STRENGTHS */
+#strengths { background: var(–cream); }
+.strengths-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: var(–warm); border: 1.5px solid var(–warm); }
+.strength-item { background: var(–cream); padding: 2rem 1.75rem; transition: background 0.25s; }
+.strength-item:hover { background: #f0ebe0; }
+.strength-num { font-family: ‘Cormorant Garamond’, serif; font-size: 1rem; color: var(–gold); margin-bottom: 0.75rem; display: block; }
+.strength-item h3 { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; }
+.strength-item p { font-size: 0.8rem; color: var(–muted); line-height: 1.7; font-weight: 300; }
+
+/* RESUME DOWNLOAD */
+#resume-dl { background: var(–accent); color: var(–cream); text-align: center; padding: 5rem 4rem; }
+#resume-dl .section-label { color: var(–gold-light); justify-content: center; }
+#resume-dl .section-label::before { background: var(–gold-light); }
+#resume-dl h2 { color: var(–cream); margin-bottom: 1.25rem; }
+#resume-dl h2 em { color: var(–gold-light); }
+#resume-dl p { font-size: 1rem; opacity: 0.75; font-weight: 300; max-width: 48ch; margin: 0 auto 2.5rem; }
+.dl-btn { display: inline-flex; align-items: center; gap: 0.75rem; background: var(–gold); color: var(–ink); padding: 1rem 2.5rem; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: background 0.25s, gap 0.25s; }
+.dl-btn:hover { background: var(–gold-light); gap: 1.25rem; }
+
+/* CONTACT */
+#contact { background: var(–gold); color: var(–ink); padding: 5rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+.contact-left h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; line-height: 1.2; margin-bottom: 0.75rem; color: var(–ink); }
+.contact-left p { font-size: 0.92rem; opacity: 0.75; font-weight: 300; }
+.contact-right { display: flex; flex-direction: column; gap: 1rem; align-items: flex-end; }
+.contact-link { font-size: 0.82rem; letter-spacing: 0.08em; color: var(–ink); text-decoration: none; font-weight: 500; opacity: 0.85; transition: opacity 0.2s; }
+.contact-link:hover { opacity: 1; }
+
+footer { background: var(–ink); color: var(–muted); padding: 1.5rem 4rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; letter-spacing: 0.08em; }
+
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 960px) {
+nav { padding: 1.25rem 2rem; }
+.nav-links { display: none; }
+#hero { grid-template-columns: 1fr; padding: 7rem 2rem 3rem; }
+.hero-stats { grid-template-columns: 1fr 1fr; }
+section { padding: 4rem 2rem; }
+.bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+.case-card { grid-template-columns: 1fr; }
+.case-index { display: none; }
+.case-block { border-left: none; border-top: 1.5px solid var(–warm); }
+.how-grid { grid-template-columns: 1fr; }
+.strengths-grid { grid-template-columns: 1fr 1fr; }
+#contact { flex-direction: column; gap: 2.5rem; align-items: flex-start; }
+.contact-right { align-items: flex-start; }
+footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <a class="nav-logo" href="#">Zahra Mithaiwala, PMP</a>
+  <ul class="nav-links">
+    <li><a href="#bio">About</a></li>
+    <li><a href="#cases">Work</a></li>
+    <li><a href="#how">Approach</a></li>
+    <li><a href="#strengths">Strengths</a></li>
+    <li><a href="#resume-dl">Resume</a></li>
+    <li><a href="mailto:kapasi898@gmail.com?subject=Opportunity%20to%20Connect">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-text fade-up">
+    <div class="hero-eyebrow">Digital Marketing & Operations Leader</div>
+    <h1>Operations that <em>perform.</em><br>Clients that <em>stay.</em></h1>
+    <p class="hero-intro">
+      I lead marketing operations and client delivery across both direct account relationships and franchise partner networks. With 7+ years in agency environments, I drive consistent results through structured processes, clear client strategy, and well-developed teams.
+    </p>
+    <a href="mailto:kapasi898@gmail.com?subject=Opportunity%20to%20Connect" class="hero-cta">Let's connect <span>→</span></a>
+  </div>
+  <div class="hero-stats fade-up">
+    <div class="stat-card">
+      <div class="stat-number">300+</div>
+      <div class="stat-label">Active clients supported</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">15+</div>
+      <div class="stat-label">Global team members led</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">35%</div>
+      <div class="stat-label">Avg. YoY revenue growth</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">7+</div>
+      <div class="stat-label">Years in agency delivery</div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+
+<section id="bio">
+  <div class="section-label">About</div>
+  <div class="bio-grid">
+    <div class="bio-text fade-up">
+      <h2>Operations-focused.<br><em>Client-driven.</em></h2>
+      <p>
+        I'm a PMP-certified Digital Marketing & Operations Leader with 7+ years of experience in agency delivery environments. I manage direct client relationships while also supporting franchise partners and internal delivery teams — operating across both models to drive consistent performance and growth.
+      </p>
+      <p>
+        My focus spans SEO strategy, paid media, web development, and marketing automation — delivered across a global team and a large, multi-industry client portfolio. I've contributed to scaling operations significantly, improving delivery quality, and strengthening client retention through structured account management and clear reporting frameworks.
+      </p>
+      <p>
+        I've also led the adoption of AI tools across team workflows — not as a technical exercise, but as a practical way to improve output quality, reduce manual effort, and scale delivery capacity without proportionally growing headcount.
+      </p>
+      <p>
+        Alongside delivery, I coach and support franchise partners on SEO fundamentals, client communication, proposal development, and how to retain marketing clients effectively.
+      </p>
+    </div>
+    <div class="bio-credentials fade-up">
+      <div class="credential">
+        <div class="credential-title">Project Management Professional (PMP)</div>
+        <div class="credential-sub">PMI · 2025</div>
+      </div>
+      <div class="credential">
+        <div class="credential-title">MA — Entertainment Media & Advertising</div>
+        <div class="credential-sub">University of Mumbai · Grade A · WES Evaluated</div>
+      </div>
+      <div class="credential">
+        <div class="credential-title">Mississauga, Ontario</div>
+        <div class="credential-sub">Open to meaningful opportunities and conversations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+
+<section id="cases">
+  <div class="section-label">Selected Work</div>
+  <h2>Examples of the<br><em>work in practice</em></h2>
+  <div class="cases-grid">
+
+```
+<div class="case-card fade-up">
+  <div class="case-index">01</div>
+  <div class="case-block">
+    <div class="case-block-label">Situation</div>
+    <h3>Scaling Agency Delivery Across a Growing Client Portfolio</h3>
+    <p>The agency hub was expanding its client base quickly but lacked the delivery infrastructure, team structure, and service frameworks needed to support that growth without compromising quality.</p>
+  </div>
+  <div class="case-block">
+    <div class="case-block-label">Actions</div>
+    <h3>Implementing Delivery Systems and Growing the Team</h3>
+    <p>Led the development of internal SOPs, QA processes, and service delivery frameworks. Recruited, onboarded, and trained team members across North America and offshore markets. Helped define and launch service packages across SEO, paid media, social, and web development to support consistent delivery at volume.</p>
+  </div>
+  <div class="case-block case-result">
+    <div class="case-block-label">Result</div>
+    <h3>Sustained Growth Across Clients and Revenue</h3>
+    <p>Contributed to scaling from a small client base to 300+ active accounts. The team grew to 15+ globally distributed members managing 150+ concurrent projects, with 35% year-over-year revenue growth sustained over three years.</p>
+  </div>
+</div>
+
+<div class="case-card fade-up">
+  <div class="case-index">02</div>
+  <div class="case-block">
+    <div class="case-block-label">Situation</div>
+    <h3>Underperforming Account with Stalled Growth</h3>
+    <p>A key client account had plateaued. Deliverables were being completed but there was no clear growth strategy, and the relationship lacked direction and momentum.</p>
+  </div>
+  <div class="case-block">
+    <div class="case-block-label">Actions</div>
+    <h3>Re-Aligning Strategy and Strengthening the Relationship</h3>
+    <p>Took over account management, reviewed active deliverables, and developed a clearer growth roadmap aligned to the client's business goals. Introduced regular reporting cadences and strategic check-ins to rebuild trust and improve visibility into results.</p>
+  </div>
+  <div class="case-block case-result">
+    <div class="case-block-label">Result</div>
+    <h3>36% Revenue Growth on the Account</h3>
+    <p>Monthly account revenue grew by 36% following the strategy realignment. The client expanded their scope of work and the account became a strong, stable long-term engagement.</p>
+  </div>
+</div>
+
+<div class="case-card fade-up">
+  <div class="case-index">03</div>
+  <div class="case-block">
+    <div class="case-block-label">Situation</div>
+    <h3>Global Eyewear Brand — Multi-Location SEO Program</h3>
+    <p>A well-known global eyewear brand needed an SEO program that could support visibility across multiple locations and product lines, in a competitive retail and ecommerce environment.</p>
+  </div>
+  <div class="case-block">
+    <div class="case-block-label">Actions</div>
+    <h3>Strategy, Planning, and Coordinated Delivery</h3>
+    <p>Led the SEO strategy consultation and project planning. Coordinated delivery across technical audits, content frameworks, and local SEO across all locations. Managed client communication and timelines throughout, ensuring alignment between the agency team and the brand's internal stakeholders.</p>
+  </div>
+  <div class="case-block case-result">
+    <div class="case-block-label">Result</div>
+    <h3>Structured Program Delivered on Time, Client Retained</h3>
+    <p>Delivered a scalable SEO program suited to the brand's size and competitive positioning. The engagement was completed on schedule and the client continued the relationship with expanded scope.</p>
+  </div>
+</div>
+
+<div class="case-card fade-up">
+  <div class="case-index">04</div>
+  <div class="case-block">
+    <div class="case-block-label">Situation</div>
+    <h3>Capital Investment Firm — SEO from Proposal to Growth</h3>
+    <p>A capital investment company with no prior digital marketing infrastructure needed a clear strategy and a reliable agency partner to manage the engagement from start through to ongoing growth.</p>
+  </div>
+  <div class="case-block">
+    <div class="case-block-label">Actions</div>
+    <h3>Full Account Lifecycle Management</h3>
+    <p>Led the proposal, onboarding, and strategy phases. Managed the client relationship directly as the primary point of contact, keeping communication clear and delivery on track. Developed a structured SEO program that matched the firm's positioning and expectations.</p>
+  </div>
+  <div class="case-block case-result">
+    <div class="case-block-label">Result</div>
+    <h3>$60K Engagement Successfully Delivered and Retained</h3>
+    <p>The engagement was delivered to a high standard, resulting in strong client satisfaction and account retention. The account management approach used here was later applied to other high-value client relationships.</p>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- HOW I WORK -->
+
+<section id="how">
+  <div class="section-label">Approach</div>
+  <h2>How I <em>work</em></h2>
+  <div class="how-grid">
+    <div class="how-card fade-up">
+      <span class="how-icon">I.</span>
+      <h3>Process First, Then Scale</h3>
+      <p>Before adding volume, I make sure the right processes are in place — clear SOPs, QA checkpoints, and defined roles. This keeps quality consistent as teams and client portfolios grow.</p>
+    </div>
+    <div class="how-card fade-up">
+      <span class="how-icon">II.</span>
+      <h3>Structured Communication Over Assumptions</h3>
+      <p>I default to clarity. Whether managing a client relationship or coordinating across a delivery team, I set expectations early, communicate proactively, and make sure everyone involved has the context they need. Ambiguity tends to be where things go wrong — I work to remove it.</p>
+    </div>
+    <div class="how-card fade-up">
+      <span class="how-icon">III.</span>
+      <h3>Balancing Detail with the Bigger Picture</h3>
+      <p>I move comfortably between strategy and execution. I can work at the level of a client growth roadmap or a specific delivery task — and I know when each one needs my attention. Getting the detail right matters, but not at the expense of losing sight of the overall direction.</p>
+    </div>
+    <div class="how-card fade-up">
+      <span class="how-icon">IV.</span>
+      <h3>Leading AI Adoption in the Team</h3>
+      <p>I've led the integration of AI tools across team workflows to improve efficiency and output quality. The focus is practical: reducing manual effort, improving turnaround times, and maintaining quality at scale — not technology for its own sake.</p>
+    </div>
+    <div class="how-card fade-up">
+      <span class="how-icon">V.</span>
+      <h3>Developing the People Around Me</h3>
+      <p>I've been involved in hiring, onboarding, and developing team members from day one. I invest in people's growth through structured training, regular feedback, and making sure they have what they need to do their jobs well.</p>
+    </div>
+    <div class="how-card fade-up">
+      <span class="how-icon">VI.</span>
+      <h3>Reporting That Drives Decisions</h3>
+      <p>I build reporting frameworks that give clients and leadership clear visibility into performance. Good reporting isn't just about showing numbers — it's about helping people understand what's working and what to do next.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+
+<section id="strengths">
+  <div class="section-label">Core Strengths</div>
+  <h2>Where I <em>add the most value</em></h2>
+  <div class="strengths-grid fade-up">
+    <div class="strength-item">
+      <span class="strength-num">01</span>
+      <h3>SEO Strategy</h3>
+      <p>Local, technical, and AI-driven SEO. From audit and planning through to execution and reporting across large client portfolios.</p>
+    </div>
+    <div class="strength-item">
+      <span class="strength-num">02</span>
+      <h3>Marketing Operations</h3>
+      <p>Managing high-volume delivery across multiple service lines and a globally distributed team, with consistent quality and clear processes.</p>
+    </div>
+    <div class="strength-item">
+      <span class="strength-num">03</span>
+      <h3>Client & Partner Account Management</h3>
+      <p>Managing the full account lifecycle across both direct client relationships and franchise partner networks — proposals, onboarding, strategy, reporting, and retention.</p>
+    </div>
+    <div class="strength-item">
+      <span class="strength-num">04</span>
+      <h3>AI-Enabled Workflows</h3>
+      <p>Leading the adoption of AI tools in team operations to improve output quality, reduce manual effort, and scale delivery more efficiently.</p>
+    </div>
+    <div class="strength-item">
+      <span class="strength-num">05</span>
+      <h3>Franchise & Partner Enablement</h3>
+      <p>Coaching and supporting franchise partners on SEO, client management, proposals, and how to build and retain a marketing client base.</p>
+    </div>
+    <div class="strength-item">
+      <span class="strength-num">06</span>
+      <h3>Team Development</h3>
+      <p>Recruiting, onboarding, training, and developing team members. Building teams that are capable, accountable, and growing in their roles.</p>
+    </div>
+    <div class="strength-item">
+      <span class="strength-num">07</span>
+      <h3>Paid Media Management</h3>
+      <p>Google Ads and Meta Ads strategy and oversight, focused on business outcomes and tied to clear client goals.</p>
+    </div>
+    <div class="strength-item">
+      <span class="strength-num">08</span>
+      <h3>Service & Pricing Strategy</h3>
+      <p>Designing service packages and pricing models that balance competitive positioning with delivery capacity and margin targets.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME DOWNLOAD -->
+
+<section id="resume-dl">
+  <div class="section-label">Resume</div>
+  <h2>Want the full <em>picture?</em></h2>
+  <p>Download my resume for a complete overview of my experience, credentials, and the platforms I work with.</p>
+  <a href="#" class="dl-btn">Download Resume <span>↓</span></a>
+</section>
+
+<!-- CONTACT -->
+
+<div id="contact">
+  <div class="contact-left">
+    <h2>Open to the right<br>conversation.</h2>
+    <p>Open to meaningful opportunities and conversations.</p>
+  </div>
+  <div class="contact-right">
+    <a href="mailto:kapasi898@gmail.com" class="contact-link">kapasi898@gmail.com</a>
+    <a href="tel:9052265254" class="contact-link">(905) 226-5254</a>
+    <a href="https://www.linkedin.com/in/zahramithaiwala" target="_blank" class="contact-link">linkedin.com/in/zahramithaiwala</a>
+    <span class="contact-link">Mississauga, Ontario</span>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Zahra Mithaiwala, PMP</span>
+  <span>Digital Marketing & Operations Leader</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
